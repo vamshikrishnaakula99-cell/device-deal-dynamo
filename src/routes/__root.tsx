@@ -77,8 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sho Tech — Mobile Phone & PC Repair | Port Jefferson, NY" },
-      { name: "description", content: "Expert phone, PC, and console repair at your door in Port Jefferson and nearby Long Island." },
+      { title: "iFixScreens — Phone, Tablet & Computer Repair | Mount Sinai, NY" },
+      { name: "description", content: "Same-day phone, tablet, computer & console repair on Route 25A in Mount Sinai, NY. 180-day warranty, lowest price guarantee, certified experts. Walk-ins welcome." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

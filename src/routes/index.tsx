@@ -3,39 +3,42 @@ import { useState } from "react";
 import {
   Phone,
   Smartphone,
-  Battery,
+  Tablet,
   Monitor,
   Gamepad2,
-  Wifi,
-  Briefcase,
+  Watch,
   MapPin,
   Star,
   ShieldCheck,
   Clock,
   Wrench,
   CheckCircle2,
+  BadgeDollarSign,
+  Store,
+  Users,
 } from "lucide-react";
 import heroRepair from "@/assets/hero-repair.jpg";
-import gamingPc from "@/assets/gaming-pc.jpg";
 
-const PHONE_TEL = "tel:+16315550134";
-const PHONE_DISPLAY = "(631) 555-0134";
-const EMAIL = "hello@shotechli.com";
+const PHONE_TEL = "tel:+16314034720";
+const PHONE_DISPLAY = "(631) 403-4720";
+const ADDRESS = "271-11 Route 25A, Mount Sinai, NY 11766";
+const DIRECTIONS_URL =
+  "https://www.google.com/maps/dir/?api=1&destination=271-11+Route+25A+Mount+Sinai+NY+11766";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sho Tech — We Come To You | Phone & PC Repair in Port Jefferson, NY" },
+      { title: "iFixScreens — Phone, Tablet & Computer Repair in Mount Sinai, NY" },
       {
         name: "description",
         content:
-          "Cracked screen? Dead battery? Sho Tech brings expert phone, PC, and console repair straight to your door across Port Jefferson & Long Island. Same-day appointments. Book now.",
+          "Cracked screen? Dead battery? iFixScreens in Mount Sinai, NY fixes phones, tablets, computers & consoles — most done same day in 30 min. 180-day warranty. Walk-ins welcome.",
       },
-      { property: "og:title", content: "Sho Tech — Mobile Phone & PC Repair, Port Jefferson NY" },
+      { property: "og:title", content: "iFixScreens — Device Repair in Mount Sinai, NY" },
       {
         property: "og:description",
         content:
-          "Expert tech repair at your door. Screens, batteries, PCs, consoles & smart home. Serving Port Jefferson and nearby Long Island.",
+          "Same-day phone, tablet, computer & console repair on Route 25A in Mount Sinai, NY. 180-day warranty, lowest price guarantee, certified experts. Walk-ins welcome.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -47,77 +50,86 @@ export const Route = createFileRoute("/")({
 const services = [
   {
     icon: Smartphone,
-    title: "Screen Repair",
-    price: "from $59",
-    desc: "Cracked or shattered iPhone, Samsung, or iPad screen replaced at your home or office — most done in under an hour.",
+    title: "Cell Phone Repair",
+    time: "30 minutes",
+    warranty: "180-day warranty",
+    desc: "iPhone, Samsung, Google Pixel, OnePlus & more. Cracked screens, batteries, charge ports, cameras, water damage — fixed same day.",
   },
   {
-    icon: Battery,
-    title: "Battery Replacement",
-    price: "from $59",
-    desc: "Phone dying by lunch? We swap in a fresh, high-quality battery on the spot and test it before we leave.",
+    icon: Tablet,
+    title: "Tablet Repair",
+    time: "45 minutes",
+    warranty: "180-day warranty",
+    desc: "Apple iPad, Samsung Tab, Amazon Kindle & Lenovo Tab. Screen, battery and camera repairs with a free diagnostic check.",
   },
   {
     icon: Monitor,
-    title: "PC & Mac Services",
-    price: "from $150",
-    desc: "Virus removal, tune-ups, data recovery, upgrades, and custom builds — expert computer help without the drop-off.",
+    title: "Computer & Mac Repair",
+    time: "Free diagnostic",
+    warranty: "180-day warranty",
+    desc: "MacBook, iMac, PC, Surface & Chromebook. Broken screens, memory/HDD-SSD upgrades, motherboard repair, data recovery, virus clean-up.",
   },
   {
     icon: Gamepad2,
     title: "Game Console Repair",
-    price: "from $59",
-    desc: "HDMI ports, overheating, disk drives and more for PlayStation, Xbox, and Nintendo Switch.",
+    time: "45 minutes",
+    warranty: "180-day warranty",
+    desc: "Xbox, PlayStation & Nintendo Switch. Controller repair, overheating, booting issues, disk drives and more.",
   },
   {
-    icon: Wifi,
-    title: "Home & Network",
-    price: "from $69",
-    desc: "Wi-Fi dead zones fixed, smart home devices set up, TVs mounted and streaming configured.",
+    icon: Watch,
+    title: "Smartwatch & Other",
+    time: "Free diagnostic",
+    warranty: "90-day warranty",
+    desc: "Apple Watch, smartwatch, iPod, back glass & drone repair. Certified experts, lowest price guarantee.",
   },
   {
-    icon: Briefcase,
-    title: "Business IT Support",
-    price: "from $199",
-    desc: "On-site support for small businesses — networks, workstations, backups, and same-day troubleshooting.",
+    icon: Store,
+    title: "Accessories & Prepaid",
+    time: "Walk-in",
+    warranty: "In store",
+    desc: "Cases, screen protectors, protection plans, refurbished phones & tablets, prepaid wireless plans and bill pay.",
   },
 ];
 
 const areas = [
-  "Port Jefferson",
-  "Port Jefferson Station",
-  "Miller Place",
   "Mount Sinai",
-  "Setauket",
-  "East Setauket",
-  "Stony Brook",
-  "Terryville",
-  "Coram",
-  "Selden",
+  "Miller Place",
+  "Port Jefferson Station",
+  "Port Jefferson",
+  "Ridge",
+  "Shoreham",
   "Rocky Point",
+  "Sound Beach",
+  "Wading River",
+  "Terryville",
+  "East Shoreham",
+  "Wildwood",
+  "Baiting Hollow",
+  "Calverton",
   "Belle Terre",
-  "Old Field",
+  "Poquott",
 ];
 
 const reviews = [
   {
     name: "Marissa T.",
-    text: "Cracked my iPhone screen in the morning, fixed at my kitchen table by the afternoon. Unreal service.",
+    text: "Cracked my iPhone screen in the morning, walked in and it was fixed before lunch. Quick, fair price, friendly staff.",
   },
   {
     name: "Dan R.",
-    text: "They built my son a gaming PC and set everything up at our house. Zero hassle, fair price.",
+    text: "My laptop wouldn't boot. They ran a free diagnostic, recovered my files, and had it running again the same day.",
   },
   {
     name: "Priya S.",
-    text: "Our office Wi-Fi was a nightmare for months. One visit from Sho Tech and everything just works.",
+    text: "Brought in my son's Nintendo Switch with a broken joystick. Repaired in under an hour and the warranty is great.",
   },
 ];
 
 const steps = [
-  { icon: Phone, title: "Call or book online", desc: "Tell us what's broken and where you are." },
-  { icon: Wrench, title: "We come to you", desc: "A certified tech arrives with the parts and tools." },
-  { icon: CheckCircle2, title: "Fixed on the spot", desc: "Most repairs done in under an hour, guaranteed." },
+  { icon: Phone, title: "Call or walk in", desc: "Tell us what's broken. Walk-ins always welcome — no appointment needed." },
+  { icon: Wrench, title: "Free diagnostic", desc: "We check your device and give you a clear, upfront price before any work starts." },
+  { icon: CheckCircle2, title: "Fixed same day", desc: "Most repairs done in 30–45 minutes, backed by our 180-day warranty." },
 ];
 
 function LandingPage() {
@@ -128,9 +140,10 @@ function LandingPage() {
       <TrustBar />
       <Services />
       <HowItWorks />
-      <GamingPcFeature />
+      <WhyUs />
       <Reviews />
       <ServiceArea />
+      <StoreInfo />
       <BookingForm />
       <Footer />
       <StickyCallBar />
@@ -146,7 +159,7 @@ function Header() {
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
             <Wrench className="h-5 w-5" />
           </span>
-          <span className="font-display text-xl font-bold">Sho Tech</span>
+          <span className="font-display text-xl font-bold">iFixScreens</span>
         </div>
         <div className="flex items-center gap-3">
           <a
@@ -160,7 +173,7 @@ function Header() {
             href="#book"
             className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition-transform hover:scale-105"
           >
-            Book a Repair
+            Get a Quote
           </a>
         </div>
       </div>
@@ -184,21 +197,23 @@ function Hero() {
       <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-20 text-center sm:pt-28">
         <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
           <MapPin className="h-3.5 w-3.5" />
-          Port Jefferson & Long Island, NY
+          Mount Sinai, NY · On Route 25A
         </p>
         <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">
-          Broken phone? <span className="text-primary text-glow">We come to you.</span>
+          Broken screen? <span className="text-primary text-glow">Fixed today.</span>
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
-          Expert phone, PC, and console repair at your door. No shop, no drop-off, no waiting days
-          without your device. Same-day appointments available.
+          Phone, tablet, computer & console repair on Route 25A in Mount Sinai. Walk-ins welcome,
+          most repairs done in 30 minutes, and every fix is backed by a 180-day warranty.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href="#book"
+            href={DIRECTIONS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105 sm:w-auto"
           >
-            Book a Repair — Free Quote
+            Get Directions
           </a>
           <a
             href={PHONE_TEL}
@@ -209,7 +224,7 @@ function Hero() {
           </a>
         </div>
         <p className="mt-4 text-sm text-muted-foreground">
-          Most screen & battery repairs done in under 60 minutes · 90-day warranty
+          Open Mon–Sat 10am–7pm · Sun 11am–6pm · Walk-ins always welcome
         </p>
       </div>
     </section>
@@ -218,10 +233,10 @@ function Hero() {
 
 function TrustBar() {
   const items = [
-    { icon: Clock, label: "Same-day service" },
-    { icon: ShieldCheck, label: "90-day warranty" },
-    { icon: Star, label: "5-star rated locally" },
-    { icon: MapPin, label: "We come to you" },
+    { icon: Clock, label: "30-minute repairs" },
+    { icon: ShieldCheck, label: "180-day warranty" },
+    { icon: BadgeDollarSign, label: "Lowest price guarantee" },
+    { icon: Store, label: "Walk-ins welcome" },
   ];
   return (
     <section className="border-y border-border bg-card">
@@ -241,10 +256,11 @@ function Services() {
   return (
     <section id="services" className="mx-auto max-w-6xl px-4 py-20">
       <h2 className="text-center text-3xl font-bold sm:text-4xl">
-        One visit. <span className="text-primary">Fixed.</span>
+        What do you need <span className="text-primary">fixed?</span>
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
-        Upfront pricing, quality parts, and a tech who shows up on time — at your home or office.
+        One stop for every device. Upfront pricing, quality parts, and certified experts — on Route
+        25A, next to Domino's Pizza.
       </p>
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
@@ -257,11 +273,15 @@ function Services() {
                 <s.icon className="h-6 w-6" />
               </span>
               <span className="rounded-full bg-accent/15 px-3 py-1 text-xs font-bold text-accent">
-                {s.price}
+                {s.time}
               </span>
             </div>
             <h3 className="mt-4 text-xl font-bold">{s.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+            <p className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-primary">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              {s.warranty}
+            </p>
           </div>
         ))}
       </div>
@@ -293,50 +313,46 @@ function HowItWorks() {
   );
 }
 
-function GamingPcFeature() {
+function WhyUs() {
+  const perks = [
+    {
+      icon: ShieldCheck,
+      title: "180-day hassle-free warranty",
+      desc: "Every phone, tablet, computer and console repair is backed by our 180-day warranty — smartwatch repairs carry 90 days.",
+    },
+    {
+      icon: BadgeDollarSign,
+      title: "Lowest price guarantee",
+      desc: "Bring us a lower local price and we'll match it. Quality parts and certified experts, never overpriced.",
+    },
+    {
+      icon: Clock,
+      title: "Same-day, 30-minute repairs",
+      desc: "Most phone repairs done in 30 minutes, tablets and consoles in about 45. Wait in-store or grab a slice next door.",
+    },
+    {
+      icon: Users,
+      title: "First-responder discount",
+      desc: "All first responders get 10% off glass screen repairs and 25% off any accessory. Just show your ID.",
+    },
+  ];
   return (
     <section className="mx-auto max-w-6xl px-4 py-20">
-      <div className="grid items-center gap-10 lg:grid-cols-2">
-        <div className="animate-float-slow overflow-hidden rounded-3xl card-glow">
-          <img
-            src={gamingPc}
-            alt="Custom gaming PC with glowing fans built by Sho Tech"
-            loading="lazy"
-            width={1280}
-            height={960}
-            className="h-full w-full object-cover"
-          />
-        </div>
-        <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-primary">
-            Custom Gaming PCs
-          </p>
-          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
-            Your dream rig, built & set up at your home
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Tell us your budget and the games you play. We pick the parts, build it, cable-manage
-            it, and set everything up where you'll actually play. You just press power.
-          </p>
-          <ul className="mt-6 space-y-3">
-            {[
-              "Free build consultation & parts list",
-              "Benchmarked and stress-tested before handover",
-              "Full setup: monitor, peripherals, Windows & games",
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                <span className="text-sm">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#book"
-            className="mt-8 inline-block rounded-2xl bg-primary px-8 py-4 font-bold text-primary-foreground transition-transform hover:scale-105"
-          >
-            Start My Build
-          </a>
-        </div>
+      <h2 className="text-center text-3xl font-bold sm:text-4xl">
+        Why neighbors choose <span className="text-primary">iFixScreens</span>
+      </h2>
+      <div className="mt-12 grid gap-5 sm:grid-cols-2">
+        {perks.map((p) => (
+          <div key={p.title} className="card-glow flex gap-4 rounded-2xl bg-card p-6">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <p.icon className="h-6 w-6" />
+            </span>
+            <div>
+              <h3 className="text-lg font-bold">{p.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -346,7 +362,7 @@ function Reviews() {
   return (
     <section className="border-y border-border bg-card">
       <div className="mx-auto max-w-6xl px-4 py-20">
-        <h2 className="text-center text-3xl font-bold sm:text-4xl">Neighbors who called us</h2>
+        <h2 className="text-center text-3xl font-bold sm:text-4xl">What customers say</h2>
         <div className="mt-12 grid gap-5 sm:grid-cols-3">
           {reviews.map((r) => (
             <figure key={r.name} className="card-glow rounded-2xl bg-background p-6">
@@ -362,6 +378,9 @@ function Reviews() {
             </figure>
           ))}
         </div>
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Sample reviews shown — replace with your real Google reviews before running ads.
+        </p>
       </div>
     </section>
   );
@@ -374,7 +393,8 @@ function ServiceArea() {
         Proudly serving <span className="text-primary">your neighborhood</span>
       </h2>
       <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
-        Based in Port Jefferson, driving to you across northern Long Island.
+        On Route 25A in Mount Sinai, next to Domino's Pizza — convenient for drop-off from across
+        northern Long Island.
       </p>
       <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
         {areas.map((a) => (
@@ -390,14 +410,81 @@ function ServiceArea() {
   );
 }
 
+function StoreInfo() {
+  const hours = [
+    { day: "Monday – Saturday", time: "10:00 AM – 7:00 PM" },
+    { day: "Sunday", time: "11:00 AM – 6:00 PM" },
+  ];
+  return (
+    <section className="border-y border-border bg-card">
+      <div className="mx-auto max-w-6xl px-4 py-20">
+        <h2 className="text-center text-3xl font-bold sm:text-4xl">Visit the store</h2>
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+          <div className="card-glow overflow-hidden rounded-2xl bg-background">
+            <iframe
+              title="iFixScreens Mount Sinai map"
+              src="https://www.google.com/maps?q=271-11+Route+25A+Mount+Sinai+NY+11766&output=embed"
+              width="100%"
+              height="320"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="border-0"
+            />
+          </div>
+          <div className="card-glow rounded-2xl bg-background p-6 sm:p-8">
+            <h3 className="flex items-center gap-2 text-xl font-bold">
+              <MapPin className="h-5 w-5 text-primary" />
+              iFixScreens — Mount Sinai
+            </h3>
+            <p className="mt-3 text-sm text-muted-foreground">{ADDRESS}</p>
+            <p className="mt-1 text-sm text-muted-foreground">Next to Domino's Pizza on Route 25A.</p>
+
+            <h4 className="mt-6 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary">
+              <Clock className="h-4 w-4" />
+              Store hours
+            </h4>
+            <ul className="mt-2 space-y-1 text-sm">
+              {hours.map((h) => (
+                <li key={h.day} className="flex justify-between gap-4">
+                  <span className="text-muted-foreground">{h.day}</span>
+                  <span className="font-semibold">{h.time}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-sm font-semibold text-primary">Walk-ins always welcome.</p>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={DIRECTIONS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 rounded-2xl bg-primary px-6 py-3 text-center font-bold text-primary-foreground transition-transform hover:scale-105"
+              >
+                Get Directions
+              </a>
+              <a
+                href={PHONE_TEL}
+                className="flex flex-1 items-center justify-center gap-2 rounded-2xl border border-border bg-card px-6 py-3 font-bold transition-colors hover:bg-secondary"
+              >
+                <Phone className="h-4 w-4 text-primary" />
+                Call Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function BookingForm() {
   const [sent, setSent] = useState(false);
   return (
     <section id="book" className="border-t border-border bg-card">
       <div className="mx-auto max-w-3xl px-4 py-20">
-        <h2 className="text-center text-3xl font-bold sm:text-4xl">Book your repair</h2>
+        <h2 className="text-center text-3xl font-bold sm:text-4xl">Get a free quote</h2>
         <p className="mt-3 text-center text-muted-foreground">
-          Tell us what's broken — we'll reply fast with a free quote and available times.
+          Tell us what's broken — we'll reply fast with a price and repair time. Or just walk in!
         </p>
         {sent ? (
           <div className="card-glow mt-10 rounded-2xl bg-background p-10 text-center">
@@ -407,13 +494,14 @@ function BookingForm() {
               We'll be in touch shortly. Need us faster? Call{" "}
               <a href={PHONE_TEL} className="font-bold text-primary">
                 {PHONE_DISPLAY}
-              </a>
+              </a>{" "}
+              or visit us at {ADDRESS}.
             </p>
           </div>
         ) : (
           <form
             className="card-glow mt-10 space-y-4 rounded-2xl bg-background p-6 sm:p-8"
-            action={`mailto:${EMAIL}`}
+            action={`mailto:mountsinai@ifixscreens.com`}
             method="post"
             encType="text/plain"
             onSubmit={() => setSent(true)}
@@ -479,15 +567,16 @@ function Footer() {
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <Wrench className="h-4 w-4" />
           </span>
-          <span className="font-display text-lg font-bold text-foreground">Sho Tech</span>
+          <span className="font-display text-lg font-bold text-foreground">iFixScreens</span>
         </div>
         <p>
-          Mobile electronics repair · Port Jefferson, NY ·{" "}
-          <a href={`mailto:${EMAIL}`} className="text-primary">
-            {EMAIL}
+          Device repair · {ADDRESS} ·{" "}
+          <a href={PHONE_TEL} className="text-primary">
+            {PHONE_DISPLAY}
           </a>
         </p>
-        <p>© {new Date().getFullYear()} Sho Tech. All rights reserved.</p>
+        <p>Mon–Sat 10am–7pm · Sun 11am–6pm · Walk-ins welcome</p>
+        <p>© {new Date().getFullYear()} iFixScreens. All rights reserved.</p>
       </div>
     </footer>
   );
@@ -499,15 +588,19 @@ function StickyCallBar() {
       <div className="flex gap-2">
         <a
           href={PHONE_TEL}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border bg-card py-3 text-sm font-bold"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-3 font-bold"
         >
-          <Phone className="h-4 w-4 text-primary" /> Call Now
+          <Phone className="h-4 w-4 text-primary" />
+          Call
         </a>
         <a
-          href="#book"
-          className="flex-1 rounded-xl bg-primary py-3 text-center text-sm font-bold text-primary-foreground"
+          href={DIRECTIONS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 font-bold text-primary-foreground"
         >
-          Book a Repair
+          <MapPin className="h-4 w-4" />
+          Directions
         </a>
       </div>
     </div>
