@@ -18,14 +18,8 @@ import {
   Users,
 } from "lucide-react";
 import heroRepair from "@/assets/hero-repair.jpg";
-import { SITE_URL, localBusinessJsonLd } from "@/lib/business";
+import { ADDRESS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, SITE_URL, localBusinessJsonLd } from "@/lib/business";
 import { SERVICE_LIST } from "@/lib/services";
-
-const PHONE_TEL = "tel:+16312655538";
-const PHONE_DISPLAY = "(631) 265-5538";
-const ADDRESS = "Middle Country Rd, Coram, NY 11727";
-const DIRECTIONS_URL =
-  "https://maps.app.goo.gl/sabHSQWD1Y3CLeG46";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -462,7 +456,7 @@ function StoreInfo() {
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
-                href={DIRECTIONS_URL}
+                href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 rounded-2xl bg-primary px-6 py-3 text-center font-bold text-primary-foreground transition-transform hover:scale-105"
@@ -601,7 +595,7 @@ function StickyCallBar() {
           Call
         </a>
         <a
-          href={DIRECTIONS_URL}
+          href={MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 font-bold text-primary-foreground"
