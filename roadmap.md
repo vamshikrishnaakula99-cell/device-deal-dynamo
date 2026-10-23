@@ -1,0 +1,3 @@
+- [x] Update directions to the supplied Google profile.
+- [ ] Update the store phone number to (631) 633-8779 and verify Call links.
+- [ ] Update street address and map location — waiting for the full address or a readable profile screenshot.

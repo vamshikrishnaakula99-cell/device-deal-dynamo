@@ -1,7 +1,7 @@
 export const SITE_URL = "https://device-deal-dynamo.lovable.app";
 export const BUSINESS_NAME = "iFixScreens Coram";
-export const PHONE_TEL = "tel:+16312655538";
-export const PHONE_DISPLAY = "(631) 265-5538";
+export const PHONE_TEL = "tel:+16316338779";
+export const PHONE_DISPLAY = "(631) 633-8779";
 export const ADDRESS = "Middle Country Rd, Coram, NY 11727";
 export const MAPS_URL = "https://share.google/R6CjlG4MKJULL1sXv";
 
@@ -12,7 +12,7 @@ export const localBusinessJsonLd = {
   name: BUSINESS_NAME,
   alternateName: "Coram Phone Repair Center",
   url: SITE_URL,
-  telephone: "+1-631-265-5538",
+  telephone: PHONE_TEL.slice(4),
   priceRange: "$$",
   hasMap: MAPS_URL,
   address: {
