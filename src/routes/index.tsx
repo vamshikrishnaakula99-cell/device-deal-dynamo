@@ -19,26 +19,26 @@ import {
 } from "lucide-react";
 import heroRepair from "@/assets/hero-repair.jpg";
 
-const PHONE_TEL = "tel:+16314034720";
-const PHONE_DISPLAY = "(631) 403-4720";
-const ADDRESS = "271-11 Route 25A, Mount Sinai, NY 11766";
+const PHONE_TEL = "tel:+16312655538";
+const PHONE_DISPLAY = "(631) 265-5538";
+const ADDRESS = "Middle Country Rd, Coram, NY 11727";
 const DIRECTIONS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=271-11+Route+25A+Mount+Sinai+NY+11766";
+  "https://maps.app.goo.gl/sabHSQWD1Y3CLeG46";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "iFixScreens — Phone, Tablet & Computer Repair in Mount Sinai, NY" },
+      { title: "iFixScreens — Phone, Tablet & Computer Repair in Coram, NY" },
       {
         name: "description",
         content:
-          "Cracked screen? Dead battery? iFixScreens in Mount Sinai, NY fixes phones, tablets, computers & consoles — most done same day in 30 min. 180-day warranty. Walk-ins welcome.",
+          "Cracked screen? Dead battery? iFixScreens in Coram, NY fixes phones, tablets, computers & consoles — most done same day in 30 min. 180-day warranty. Walk-ins welcome.",
       },
-      { property: "og:title", content: "iFixScreens — Device Repair in Mount Sinai, NY" },
+      { property: "og:title", content: "iFixScreens — Device Repair in Coram, NY" },
       {
         property: "og:description",
         content:
-          "Same-day phone, tablet, computer & console repair on Route 25A in Mount Sinai, NY. 180-day warranty, lowest price guarantee, certified experts. Walk-ins welcome.",
+          "Same-day phone, tablet, computer & console repair on Middle Country Rd in Coram, NY. 180-day warranty, lowest price guarantee, certified experts. Walk-ins welcome.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -93,22 +93,22 @@ const services = [
 ];
 
 const areas = [
-  "Mount Sinai",
-  "Miller Place",
+  "Coram",
+  "Selden",
+  "Middle Island",
+  "Medford",
+  "Gordon Heights",
+  "Centereach",
+  "Farmingville",
+  "Holtsville",
   "Port Jefferson Station",
-  "Port Jefferson",
-  "Ridge",
-  "Shoreham",
-  "Rocky Point",
-  "Sound Beach",
-  "Wading River",
   "Terryville",
-  "East Shoreham",
-  "Wildwood",
-  "Baiting Hollow",
-  "Calverton",
-  "Belle Terre",
-  "Poquott",
+  "Mount Sinai",
+  "Ridge",
+  "Yaphank",
+  "Lake Grove",
+  "Patchogue",
+  "Miller Place",
 ];
 
 const reviews = [
@@ -129,7 +129,7 @@ const reviews = [
 const steps = [
   { icon: Phone, title: "Call or walk in", desc: "Tell us what's broken. Walk-ins always welcome — no appointment needed." },
   { icon: Wrench, title: "Free diagnostic", desc: "We check your device and give you a clear, upfront price before any work starts." },
-  { icon: CheckCircle2, title: "Fixed same day", desc: "Most repairs done in 30–45 minutes, backed by our 180-day warranty." },
+  { icon: CheckCircle2, title: "Fixed same day", desc: "Most repairs done in 30–45 minutes — we restore reliability, backed by a 180-day warranty." },
 ];
 
 function LandingPage() {
@@ -173,7 +173,7 @@ function Header() {
             href="#book"
             className="rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition-transform hover:scale-105"
           >
-            Get a Quote
+            Get Free Quote
           </a>
         </div>
       </div>
@@ -188,32 +188,30 @@ function Hero() {
         <img
           src={heroRepair}
           alt="Technician repairing a smartphone screen"
-          className="h-full w-full object-cover opacity-40"
+          className="h-full w-full object-cover opacity-30"
           width={1600}
           height={1024}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
       </div>
       <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-20 text-center sm:pt-28">
         <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">
           <MapPin className="h-3.5 w-3.5" />
-          Mount Sinai, NY · On Route 25A
+          Coram, NY · Middle Country Rd
         </p>
         <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">
-          Broken screen? <span className="text-primary text-glow">Fixed today.</span>
+          Broken screen? <span className="text-primary">Fixed today.</span>
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
-          Phone, tablet, computer & console repair on Route 25A in Mount Sinai. Walk-ins welcome,
+          Phone, tablet, computer & console repair on Middle Country Rd in Coram. Walk-ins welcome,
           most repairs done in 30 minutes, and every fix is backed by a 180-day warranty.
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
-            href={DIRECTIONS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105 sm:w-auto"
+            href="#book"
+            className="w-full rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/30 transition-transform hover:scale-[1.02] sm:w-auto"
           >
-            Get Directions
+            Start My Repair
           </a>
           <a
             href={PHONE_TEL}
@@ -259,24 +257,24 @@ function Services() {
         What do you need <span className="text-primary">fixed?</span>
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
-        One stop for every device. Upfront pricing, quality parts, and certified experts — on Route
-        25A, next to Domino's Pizza.
+        One stop for every device. Upfront pricing, premium parts, and certified experts — right
+        on Middle Country Rd in Coram.
       </p>
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
           <div
             key={s.title}
-            className="card-glow rounded-2xl bg-card p-6 transition-transform hover:-translate-y-1"
+            className="card-glow group rounded-2xl p-6 hover:-translate-y-1"
           >
             <div className="flex items-center justify-between">
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary">
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                 <s.icon className="h-6 w-6" />
               </span>
-              <span className="rounded-full bg-accent/15 px-3 py-1 text-xs font-bold text-accent">
+              <span className="rounded-full bg-info/10 px-3 py-1 text-xs font-bold text-info">
                 {s.time}
               </span>
             </div>
-            <h3 className="mt-4 text-xl font-bold">{s.title}</h3>
+            <h3 className="mt-4 text-xl font-bold transition-colors group-hover:text-primary">{s.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
             <p className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-primary">
               <ShieldCheck className="h-3.5 w-3.5" />
@@ -328,7 +326,7 @@ function WhyUs() {
     {
       icon: Clock,
       title: "Same-day, 30-minute repairs",
-      desc: "Most phone repairs done in 30 minutes, tablets and consoles in about 45. Wait in-store or grab a slice next door.",
+      desc: "Most phone repairs done in 30 minutes, tablets and consoles in about 45. Wait in-store or run a quick errand nearby.",
     },
     {
       icon: Users,
@@ -344,7 +342,7 @@ function WhyUs() {
       <div className="mt-12 grid gap-5 sm:grid-cols-2">
         {perks.map((p) => (
           <div key={p.title} className="card-glow flex gap-4 rounded-2xl bg-card p-6">
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <p.icon className="h-6 w-6" />
             </span>
             <div>
@@ -393,8 +391,7 @@ function ServiceArea() {
         Proudly serving <span className="text-primary">your neighborhood</span>
       </h2>
       <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
-        On Route 25A in Mount Sinai, next to Domino's Pizza — convenient for drop-off from across
-        northern Long Island.
+        Right on Middle Country Rd in Coram — an easy drop-off from anywhere in central Suffolk.
       </p>
       <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
         {areas.map((a) => (
@@ -422,8 +419,8 @@ function StoreInfo() {
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <div className="card-glow overflow-hidden rounded-2xl bg-background">
             <iframe
-              title="iFixScreens Mount Sinai map"
-              src="https://www.google.com/maps?q=271-11+Route+25A+Mount+Sinai+NY+11766&output=embed"
+              title="iFixScreens Coram map"
+              src="https://www.google.com/maps?q=40.8746706,-72.979135&z=16&output=embed"
               width="100%"
               height="320"
               loading="lazy"
@@ -434,10 +431,10 @@ function StoreInfo() {
           <div className="card-glow rounded-2xl bg-background p-6 sm:p-8">
             <h3 className="flex items-center gap-2 text-xl font-bold">
               <MapPin className="h-5 w-5 text-primary" />
-              iFixScreens — Mount Sinai
+              iFixScreens — Coram
             </h3>
             <p className="mt-3 text-sm text-muted-foreground">{ADDRESS}</p>
-            <p className="mt-1 text-sm text-muted-foreground">Next to Domino's Pizza on Route 25A.</p>
+            <p className="mt-1 text-sm text-muted-foreground">Coram Phone Repair Center — on Google Maps.</p>
 
             <h4 className="mt-6 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-primary">
               <Clock className="h-4 w-4" />
@@ -501,7 +498,7 @@ function BookingForm() {
         ) : (
           <form
             className="card-glow mt-10 space-y-4 rounded-2xl bg-background p-6 sm:p-8"
-            action={`mailto:mountsinai@ifixscreens.com`}
+            action={`mailto:coram@ifixscreens.com`}
             method="post"
             encType="text/plain"
             onSubmit={() => setSent(true)}
@@ -547,7 +544,7 @@ function BookingForm() {
               type="submit"
               className="w-full rounded-2xl bg-primary px-8 py-4 text-lg font-bold text-primary-foreground transition-transform hover:scale-[1.02]"
             >
-              Get My Free Quote
+              Get Free Quote
             </button>
             <p className="text-center text-xs text-muted-foreground">
               No spam, ever. We only contact you about your repair.
