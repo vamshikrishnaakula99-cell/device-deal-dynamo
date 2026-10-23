@@ -15,6 +15,7 @@ import { Route as GameConsoleRepairRouteImport } from './routes/game-console-rep
 import { Route as IpadTabletRepairRouteImport } from './routes/ipad-tablet-repair'
 import { Route as IphoneRepairRouteImport } from './routes/iphone-repair'
 import { Route as SamsungRepairRouteImport } from './routes/samsung-repair'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const SamsungRepairRoute = SamsungRepairRouteImport.update({
   path: '/samsung-repair',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/ipad-tablet-repair': typeof IpadTabletRepairRoute
   '/iphone-repair': typeof IphoneRepairRoute
   '/samsung-repair': typeof SamsungRepairRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/ipad-tablet-repair': typeof IpadTabletRepairRoute
   '/iphone-repair': typeof IphoneRepairRoute
   '/samsung-repair': typeof SamsungRepairRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/ipad-tablet-repair': typeof IpadTabletRepairRoute
   '/iphone-repair': typeof IphoneRepairRoute
   '/samsung-repair': typeof SamsungRepairRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +90,7 @@ export interface FileRouteTypes {
     | '/ipad-tablet-repair'
     | '/iphone-repair'
     | '/samsung-repair'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +99,7 @@ export interface FileRouteTypes {
     | '/ipad-tablet-repair'
     | '/iphone-repair'
     | '/samsung-repair'
+    | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
@@ -97,6 +108,7 @@ export interface FileRouteTypes {
     | '/ipad-tablet-repair'
     | '/iphone-repair'
     | '/samsung-repair'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +118,7 @@ export interface RootRouteChildren {
   IpadTabletRepairRoute: typeof IpadTabletRepairRoute
   IphoneRepairRoute: typeof IphoneRepairRoute
   SamsungRepairRoute: typeof SamsungRepairRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SamsungRepairRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -162,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   IpadTabletRepairRoute: IpadTabletRepairRoute,
   IphoneRepairRoute: IphoneRepairRoute,
   SamsungRepairRoute: SamsungRepairRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
