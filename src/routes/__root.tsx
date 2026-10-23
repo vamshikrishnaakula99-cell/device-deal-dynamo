@@ -77,8 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "iFixScreens — Phone, Tablet & Computer Repair | Mount Sinai, NY" },
-      { name: "description", content: "Same-day phone, tablet, computer & console repair on Route 25A in Mount Sinai, NY. 180-day warranty, lowest price guarantee, certified experts. Walk-ins welcome." },
+      { title: "iFixScreens — Phone, Tablet & Computer Repair | Coram, NY" },
+      { name: "description", content: "Same-day phone, tablet, computer & console repair on Middle Country Rd in Coram, NY. 180-day warranty, lowest price guarantee, certified experts. Walk-ins welcome." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Inter:wght@400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
