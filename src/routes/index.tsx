@@ -257,8 +257,8 @@ function Services() {
         What do you need <span className="text-primary">fixed?</span>
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
-        One stop for every device. Upfront pricing, quality parts, and certified experts — on Route
-        25A, next to Domino's Pizza.
+        One stop for every device. Upfront pricing, premium parts, and certified experts — right
+        on Middle Country Rd in Coram.
       </p>
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
