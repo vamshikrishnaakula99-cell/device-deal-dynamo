@@ -18,6 +18,8 @@ import {
   Users,
 } from "lucide-react";
 import heroRepair from "@/assets/hero-repair.jpg";
+import { SITE_URL, localBusinessJsonLd } from "@/lib/business";
+import { SERVICE_LIST } from "@/lib/services";
 
 const PHONE_TEL = "tel:+16312655538";
 const PHONE_DISPLAY = "(631) 265-5538";
@@ -26,9 +28,12 @@ const DIRECTIONS_URL =
   "https://maps.app.goo.gl/sabHSQWD1Y3CLeG46";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(localBusinessJsonLd) }],
     meta: [
-      { title: "iFixScreens — Phone, Tablet & Computer Repair in Coram, NY" },
+      { title: "Phone Repair Coram NY — iPhone, iPad & Laptop Repair | iFixScreens" },
       {
         name: "description",
         content:
@@ -41,6 +46,7 @@ export const Route = createFileRoute("/")({
           "Same-day phone, tablet, computer & console repair on Middle Country Rd in Coram, NY. 180-day warranty, lowest price guarantee, certified experts. Walk-ins welcome.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `${SITE_URL}/` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
@@ -136,15 +142,19 @@ function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
+      <main>
       <Hero />
       <TrustBar />
       <Services />
       <HowItWorks />
       <WhyUs />
       <Reviews />
+      <PopularRepairs />
+      <Faq />
       <ServiceArea />
       <StoreInfo />
       <BookingForm />
+      </main>
       <Footer />
       <StickyCallBar />
     </div>
@@ -601,5 +611,49 @@ function StickyCallBar() {
         </a>
       </div>
     </div>
+  );
+}
+
+const faqs = [
+  { q: "Where is iFixScreens in Coram?", a: "We're on Middle Country Rd in Coram, NY 11727 — tap Get Directions for turn-by-turn navigation." },
+  { q: "Do I need an appointment for phone repair?", a: "No. Walk-ins are always welcome Monday–Saturday 10am–7pm and Sunday 11am–6pm." },
+  { q: "How long does a cracked screen repair take?", a: "Most phone screen repairs take about 30 minutes; tablets and consoles about 45 minutes." },
+  { q: "What warranty do you offer?", a: "Phone, tablet, computer and console repairs carry a 180-day hassle-free warranty. Smartwatch and other repairs carry 90 days." },
+  { q: "Will you beat a competitor's price?", a: "Yes — our lowest price guarantee means we'll match a lower local quote for the same repair." },
+];
+
+function PopularRepairs() {
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-20">
+      <h2 className="text-center text-3xl font-bold sm:text-4xl">
+        Popular repairs in <span className="text-primary">Coram</span>
+      </h2>
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {SERVICE_LIST.map((s) => (
+          <a key={s.slug} href={`/${s.slug}`} className="card-glow group rounded-2xl p-5">
+            <h3 className="font-bold transition-colors group-hover:text-primary">{s.name}</h3>
+            <p className="mt-1 text-sm text-muted-foreground">{s.time} · {s.warranty}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Faq() {
+  return (
+    <section className="border-y border-border bg-card">
+      <div className="mx-auto max-w-3xl px-4 py-20">
+        <h2 className="text-center text-3xl font-bold sm:text-4xl">Repair questions, answered</h2>
+        <div className="mt-10 space-y-3">
+          {faqs.map((f) => (
+            <details key={f.q} className="card-glow group rounded-xl p-5">
+              <summary className="cursor-pointer font-bold group-open:text-primary">{f.q}</summary>
+              <p className="mt-2 text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

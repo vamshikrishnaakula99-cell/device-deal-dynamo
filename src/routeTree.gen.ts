@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComputerRepairRouteImport } from './routes/computer-repair'
+import { Route as GameConsoleRepairRouteImport } from './routes/game-console-repair'
+import { Route as IpadTabletRepairRouteImport } from './routes/ipad-tablet-repair'
+import { Route as IphoneRepairRouteImport } from './routes/iphone-repair'
+import { Route as SamsungRepairRouteImport } from './routes/samsung-repair'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComputerRepairRoute = ComputerRepairRouteImport.update({
+  id: '/computer-repair',
+  path: '/computer-repair',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GameConsoleRepairRoute = GameConsoleRepairRouteImport.update({
+  id: '/game-console-repair',
+  path: '/game-console-repair',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IpadTabletRepairRoute = IpadTabletRepairRouteImport.update({
+  id: '/ipad-tablet-repair',
+  path: '/ipad-tablet-repair',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IphoneRepairRoute = IphoneRepairRouteImport.update({
+  id: '/iphone-repair',
+  path: '/iphone-repair',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SamsungRepairRoute = SamsungRepairRouteImport.update({
+  id: '/samsung-repair',
+  path: '/samsung-repair',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/computer-repair': typeof ComputerRepairRoute
+  '/game-console-repair': typeof GameConsoleRepairRoute
+  '/ipad-tablet-repair': typeof IpadTabletRepairRoute
+  '/iphone-repair': typeof IphoneRepairRoute
+  '/samsung-repair': typeof SamsungRepairRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/computer-repair': typeof ComputerRepairRoute
+  '/game-console-repair': typeof GameConsoleRepairRoute
+  '/ipad-tablet-repair': typeof IpadTabletRepairRoute
+  '/iphone-repair': typeof IphoneRepairRoute
+  '/samsung-repair': typeof SamsungRepairRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/computer-repair': typeof ComputerRepairRoute
+  '/game-console-repair': typeof GameConsoleRepairRoute
+  '/ipad-tablet-repair': typeof IpadTabletRepairRoute
+  '/iphone-repair': typeof IphoneRepairRoute
+  '/samsung-repair': typeof SamsungRepairRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/computer-repair'
+    | '/game-console-repair'
+    | '/ipad-tablet-repair'
+    | '/iphone-repair'
+    | '/samsung-repair'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/computer-repair'
+    | '/game-console-repair'
+    | '/ipad-tablet-repair'
+    | '/iphone-repair'
+    | '/samsung-repair'
+  id:
+    | '__root__'
+    | '/'
+    | '/computer-repair'
+    | '/game-console-repair'
+    | '/ipad-tablet-repair'
+    | '/iphone-repair'
+    | '/samsung-repair'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComputerRepairRoute: typeof ComputerRepairRoute
+  GameConsoleRepairRoute: typeof GameConsoleRepairRoute
+  IpadTabletRepairRoute: typeof IpadTabletRepairRoute
+  IphoneRepairRoute: typeof IphoneRepairRoute
+  SamsungRepairRoute: typeof SamsungRepairRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/computer-repair': {
+      id: '/computer-repair'
+      path: '/computer-repair'
+      fullPath: '/computer-repair'
+      preLoaderRoute: typeof ComputerRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/game-console-repair': {
+      id: '/game-console-repair'
+      path: '/game-console-repair'
+      fullPath: '/game-console-repair'
+      preLoaderRoute: typeof GameConsoleRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ipad-tablet-repair': {
+      id: '/ipad-tablet-repair'
+      path: '/ipad-tablet-repair'
+      fullPath: '/ipad-tablet-repair'
+      preLoaderRoute: typeof IpadTabletRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/iphone-repair': {
+      id: '/iphone-repair'
+      path: '/iphone-repair'
+      fullPath: '/iphone-repair'
+      preLoaderRoute: typeof IphoneRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/samsung-repair': {
+      id: '/samsung-repair'
+      path: '/samsung-repair'
+      fullPath: '/samsung-repair'
+      preLoaderRoute: typeof SamsungRepairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComputerRepairRoute: ComputerRepairRoute,
+  GameConsoleRepairRoute: GameConsoleRepairRoute,
+  IpadTabletRepairRoute: IpadTabletRepairRoute,
+  IphoneRepairRoute: IphoneRepairRoute,
+  SamsungRepairRoute: SamsungRepairRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
